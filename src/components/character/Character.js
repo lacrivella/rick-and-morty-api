@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Character({ name, status, species, image }) {
+function Character({ character }) {
   return (
-    <>
-      <img src={image} />
-      <p>{name}</p>
-      <p>{species}</p>
-      <p>{status}</p>
-    </>
+    <section>
+      <img src={character.image}/>
+      <p>{character.name}</p>
+      <p>{character.species}</p>
+      <p>{character.status}</p>
+    </section>
   );
 }
 
 Character.propTypes = {
-  name: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  species: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  character: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  })
 };
 
 export default Character;
